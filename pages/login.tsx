@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react'
 import {
   ActionCard,
   CenterLink,
-  createLogoutHandler,
+  useLogoutHandler,
   Flow,
   MarginCard
 } from '../pkg'
@@ -38,7 +38,7 @@ const Login: NextPage = () => {
 
   // This might be confusing, but we want to show the user an option
   // to sign out if they are performing two-factor authentication!
-  const onLogout = createLogoutHandler([aal, refresh])
+  const onLogout = useLogoutHandler(aal, refresh)
 
   useEffect(() => {
     // If the router is not ready yet, or we already have a flow, do nothing.

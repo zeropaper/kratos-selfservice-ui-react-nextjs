@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import { DocsButton, MarginCard, createLogoutHandler } from '../pkg'
+import { DocsButton, MarginCard, useLogoutHandler } from '../pkg'
 import ory from '../pkg/sdk'
 
 const Home: NextPage = () => {
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   )
   const [hasSession, setHasSession] = useState<boolean>(false)
   const router = useRouter()
-  const onLogout = createLogoutHandler()
+  const onLogout = useLogoutHandler()
 
   useEffect(() => {
     ory
